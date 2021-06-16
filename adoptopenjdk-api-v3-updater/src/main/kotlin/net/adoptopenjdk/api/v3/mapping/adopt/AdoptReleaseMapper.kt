@@ -163,7 +163,7 @@ class AdoptReleaseMapper @Inject constructor(
             """.*(20[0-9]{2}-[0-9]{2}-[0-9]{2}|20[0-9]{6}).*"""
         val hasDate = Pattern.compile(dateMatcher).matcher(release.name)
 
-        return if (release.url.matches(Regex(".*/openjdk[0-9]+-binaries/.*"))) {
+        return if (release.url.matches(Regex(".*/semeru[0-9]+-binaries/.*"))) {
             // Can trust isPrerelease from -binaries repos
             if (release.isPrerelease) {
                 ReleaseType.ea
