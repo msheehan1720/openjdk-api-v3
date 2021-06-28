@@ -4,7 +4,7 @@ RUN mkdir /tmp/build
 
 WORKDIR /tmp/build
 
-COPY ../*  /tmp/build
+COPY ../.  /tmp/build
 
 RUN ./mvnw package
 
