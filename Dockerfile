@@ -1,8 +1,5 @@
 FROM adoptopenjdk/openjdk11 as build
 
-RUN useradd java -m
-
-
 RUN mkdir /tmp/build
 
 WORKDIR /tmp/build
@@ -20,7 +17,7 @@ COPY --from=build /tmp/build/adoptopenjdk-api-v3-frontend/target/lib/* /deployme
 COPY --from=build /tmp/build/adoptopenjdk-api-v3-updater/target/adoptopenjdk-api-v3-updater-*-jar-with-dependencies.jar /deployments/adoptopenjdk-api-v3-updater-runner.jar
 COPY --from=build /tmp/build/adoptopenjdk-api-v3-frontend/target/adoptopenjdk-api-*-runner.jar /deployments/adoptopenjdk-api-v3-frontend.jar
 
-RUN chown -R java   /tmp/build
+RUN useradd java -m;chown -R java   /tmp/build
 
 USER java
 
