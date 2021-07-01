@@ -1,5 +1,9 @@
 FROM adoptopenjdk/openjdk11 as build
 
+RUN useradd java -m
+
+USER java
+
 RUN mkdir /tmp/build
 
 WORKDIR /tmp/build
